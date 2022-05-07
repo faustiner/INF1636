@@ -1,6 +1,6 @@
 package model;
 
-class City {
+public class City {
 	
 	private String name;
 	private int price;

@@ -1,6 +1,6 @@
 package model;
 
-class Player {
+public class Player {
 	
 	private String name;
 	private String colour;
