@@ -1,5 +1,22 @@
 package model;
 
-public class City {
-
+class City {
+	
+	private String name;
+	private int price;
+	
+	
+	public City(String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
+	
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
 }
