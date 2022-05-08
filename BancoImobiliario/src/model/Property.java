@@ -1,12 +1,13 @@
 package model;
 
-public class City {
+public class Property {
 	
 	private String name;
 	private int price;
+	private boolean canBuy = true;
 	
 	
-	public City(String name, int price) {
+	public Property(String name, int price) {
 		this.name = name;
 		this.price = price;
 	}
@@ -18,5 +19,9 @@ public class City {
 	
 	public int getPrice() {
 		return price;
+	}
+
+	public boolean canBuy() {
+		return canBuy;
 	}
 }
