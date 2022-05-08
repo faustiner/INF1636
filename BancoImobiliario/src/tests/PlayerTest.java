@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 import model.Player;
+import model.Property;
 
 import org.junit.Test;
 
@@ -28,5 +29,28 @@ public class PlayerTest {
 		int initialMoney = 4000;
 		assertEquals(initialMoney, player.getMoney());
 	}
-
+	
+	@Test
+	public void playerBuyPropertyTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Property property = new Property("Leblon", 2000, 500);
+		player.buyProperty(property);
+		assertEquals(player.checkHasProperty(property), true);
+	}
+	
+	@Test
+	public void playerBuyPropertyMoneyTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Property property = new Property("Leblon", 2000, 500);
+		player.buyProperty(property);
+		assertEquals(player.getMoney(), 2000);
+	}
+	
+	@Test
+	public void playerPayRentTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Property property = new Property("Leblon", 2000, 500);
+		player.payRent(property);
+		assertEquals(player.getMoney(), 3500);
+	}
 }

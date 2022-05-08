@@ -2,6 +2,8 @@ package tests;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import model.Player;
 import model.Property;
 
 public class PropertyTest {
@@ -25,6 +27,14 @@ public class PropertyTest {
 		Property property = new Property("Leblon", 4500, 500);
 		int propertyRent = 500;
 		assertEquals(propertyRent, property.getRent());
+	}
+	
+	@Test
+	public void propertyOwnerTest() {
+		Property property = new Property("Leblon", 4500, 500);
+		Player player = new Player("Raphael", "Vermelho");
+		property.setPropertyOwner(player);
+		assertEquals(player, property.getPropertyOwner());
 	}
 
 }

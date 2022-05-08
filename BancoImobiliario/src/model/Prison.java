@@ -23,10 +23,9 @@ public class Prison {
     }
     
     public void addInPrison(Player player) {
-    	if(checkPlayerPrison(player)) {
+    	if(!checkPlayerPrison(player)) {
     		playerPrison.add(player);
     	}
-    	
     }
     
     public ArrayList<Player> getPrison() {
