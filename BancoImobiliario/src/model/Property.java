@@ -37,4 +37,8 @@ public class Property {
 	public int getRent() {
 		return rent;
 	}
+	
+	public boolean hasOwner() {
+		return propertyOwner != null;
+	}
 }

@@ -43,8 +43,14 @@ public class Player {
 	}
 	
 	public void payRent(Property property) {
-		if(!checkHasProperty(property)) {
+		if(!checkHasProperty(property) && property.hasOwner()) {
 			money -= property.getRent();
+		}
+	}
+	
+	public void gameOver() {
+		if(money == 0) {
+			System.out.print("Fim de jogo para esse jogador");
 		}
 	}
 }
