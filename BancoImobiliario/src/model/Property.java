@@ -4,19 +4,15 @@ public class Property {
 	
 	private String name;
 	private int price;
-	private boolean canBuy = true;
 	private Player propertyOwner = null;
+	private int rent;
 	
 	
-	public Property(String name, int price) {
+	public Property(String name, int price, int rent) {
 		this.name = name;
 		this.price = price;
-
-		if(propertyOwner != null) {
-			canBuy = true;
-		}
+		this.rent = rent;
 	}
-	
 	
 	public String getName() {
 		return name;
@@ -27,10 +23,18 @@ public class Property {
 	}
 
 	public boolean canBuy() {
-		return canBuy;
+		return propertyOwner == null;
 	}
 
 	public void setPropertyOwner(Player player) {
 		this.propertyOwner = player;
+	}
+
+	public Player getPropertyOwner() {
+		return propertyOwner;
+	}
+
+	public int getRent() {
+		return rent;
 	}
 }

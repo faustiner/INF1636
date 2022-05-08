@@ -14,7 +14,6 @@ public class Player {
 		this.colour = cor;
 	}
 	
-	
 	public String getName() {
 		return name;
 	}
@@ -33,5 +32,4 @@ public class Player {
 			money -= property.getPrice();
 		}
 	}
-
 }
