@@ -32,4 +32,19 @@ public class Player {
 			money -= property.getPrice();
 		}
 	}
+	
+	public boolean checkHasProperty(Property property) {
+		for(int i = 0; i < playerProperties.size(); i++) {
+    		if(playerProperties.get(i) == property) {
+    			return true;
+    		} 
+    	}
+		return false;
+	}
+	
+	public void payRent(Property property) {
+		if(!checkHasProperty(property)) {
+			money -= property.getRent();
+		}
+	}
 }
