@@ -44,6 +44,15 @@ public class Player {
 	
 	public void payRent(Property property) {
 		if(!checkHasProperty(property) && property.hasOwner()) {
+			if(property.getHouses() > 0) {
+				money -= property.getRentWithHouse();
+				return;
+			}
+			
+			if(property.getHotel() > 0) {
+				money -= property.getRentWithHotel();
+				return;
+			}
 			money -= property.getRent();
 		}
 	}

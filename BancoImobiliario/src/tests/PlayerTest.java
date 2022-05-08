@@ -33,7 +33,7 @@ public class PlayerTest {
 	@Test
 	public void playerBuyPropertyTest() {
 		Player player = new Player("Raphael", "Vermelho");
-		Property property = new Property("Leblon", 2000, 500);
+		Property property = new Property("Leblon", 2000, 500, 600, 700);
 		player.buyProperty(property);
 		assertEquals(player.checkHasProperty(property), true);
 	}
@@ -41,7 +41,7 @@ public class PlayerTest {
 	@Test
 	public void playerBuyPropertyMoneyTest() {
 		Player player = new Player("Raphael", "Vermelho");
-		Property property = new Property("Leblon", 2000, 500);
+		Property property = new Property("Leblon", 2000, 500, 600, 700);
 		player.buyProperty(property);
 		assertEquals(player.getMoney(), 2000);
 	}
@@ -49,8 +49,32 @@ public class PlayerTest {
 	@Test
 	public void playerPayRentTest() {
 		Player player = new Player("Raphael", "Vermelho");
-		Property property = new Property("Leblon", 2000, 500);
+		Player player2 = new Player("Vitor", "Azul");
+		Property property = new Property("Leblon", 2000, 500, 600, 700);
+		property.setPropertyOwner(player2);
 		player.payRent(property);
 		assertEquals(player.getMoney(), 3500);
+	}
+	
+	@Test
+	public void playerPayRentWithHouseTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Player player2 = new Player("Vitor", "Azul");
+		Property property = new Property("Leblon", 2000, 500, 600, 700);
+		property.setPropertyOwner(player2);
+		property.setHouse(2);
+		player.payRent(property);
+		assertEquals(player.getMoney(), 2800);
+	}
+	
+	@Test
+	public void playerPayRentWithHotelTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Player player2 = new Player("Vitor", "Azul");
+		Property property = new Property("Leblon", 2000, 500, 600, 700);
+		property.setPropertyOwner(player2);
+		property.setHotel(2);
+		player.payRent(property);
+		assertEquals(player.getMoney(), 2600);
 	}
 }
