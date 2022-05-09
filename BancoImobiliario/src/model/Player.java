@@ -49,6 +49,12 @@ public class Player {
 		}
 	}
 	
+	public void sellProperty(Property property) {
+		playerProperties.remove(property);
+		var newMoney = (int)(property.getPrice() * 0.9);
+		increaseMoney(newMoney);
+	}
+	
 	public boolean checkHasProperty(Property property) {
 		for(int i = 0; i < playerProperties.size(); i++) {
     		if(playerProperties.get(i) == property) {

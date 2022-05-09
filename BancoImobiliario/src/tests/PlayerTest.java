@@ -138,4 +138,22 @@ public class PlayerTest {
 		player.buildHotel(property);
 		assertEquals(property.getHotel(), 1);
 	}
+	
+	@Test
+	public void sellPropertyTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
+		player.buyProperty(property);
+		player.sellProperty(property);
+		assertEquals(player.checkHasProperty(property), false);
+	}
+	
+	@Test
+	public void sellPropertyMoneyTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
+		player.buyProperty(property);
+		player.sellProperty(property);
+		assertEquals(player.getMoney(), 3800);
+	}
 }
