@@ -73,21 +73,26 @@ public class Property {
 		return rentWithHotel * hotels;
 	}
 	
+	public int getPriceHouse() {
+		return housePrice;
+	}
+	
+	public int getPriceHotel() {
+		return hotelPrice;
+	}
+	
 	public boolean hasOwner() {
 		return propertyOwner != null;
 	}
 	
-	public void buildHouse(Player player) {
-		if(getPropertyOwner() == player) {
-			houses++;
-			player.decreaseMoney(housePrice);
-		}
+	public void buildHouse() {
+		houses++;
+			
 	}
 	
-	public void buildHotel(Player player) {
-		if(getPropertyOwner() == player && houses >= 1) {
+	public void buildHotel() {
+		if(houses >= 1) {
 			hotels++;
-			player.decreaseMoney(hotelPrice);
 		}
 	}
 }

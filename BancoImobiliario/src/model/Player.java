@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Player {
 	
@@ -8,6 +10,7 @@ public class Player {
 	private String colour;
 	private int money = 4000;
 	private ArrayList<Property> playerProperties = new ArrayList<>();
+	private Map<Property, Boolean> maker = new HashMap<Property, Boolean>();
 	
 	public Player(String name, String cor) {
 		this.name = name;
@@ -33,11 +36,16 @@ public class Player {
 	public void increaseMoney(int newMoney) {
 		money += newMoney;
 	}
+	
+	public void canBuild(Property property) {
+		maker.put(property, true);
+	}
 
 	public void buyProperty (Property property) {
 		if(money >= property.getPrice() && property.canBuy()) {
 			playerProperties.add(property);
 			money -= property.getPrice();
+			canBuild(property);
 		}
 	}
 	
@@ -48,6 +56,24 @@ public class Player {
     		} 
     	}
 		return false;
+	}
+	
+	public boolean checkCanBuild(Property property) {
+		return maker.get(property);
+	}
+	
+	public void buildHouse(Property property) {
+		if(checkHasProperty(property) && checkCanBuild(property)) {
+			property.buildHouse();
+			decreaseMoney(property.getPriceHouse());
+		}
+	}
+	
+	public void buildHotel(Property property) {
+		if(checkHasProperty(property) && checkCanBuild(property)) {
+			property.buildHotel();
+			decreaseMoney(property.getPriceHotel());
+		}
 	}
 	
 	public void payRent(Property property) {
