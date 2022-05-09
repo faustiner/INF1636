@@ -25,6 +25,14 @@ public class Player {
 	public int getMoney() {
 		return money;
 	}
+	
+	public void decreaseMoney(int newMoney) {
+		money -= newMoney;
+	}
+	
+	public void increaseMoney(int newMoney) {
+		money += newMoney;
+	}
 
 	public void buyProperty (Property property) {
 		if(money >= property.getPrice() && property.canBuy()) {
@@ -46,14 +54,17 @@ public class Player {
 		if(!checkHasProperty(property) && property.hasOwner()) {
 			if(property.getHouses() > 0) {
 				money -= property.getRentWithHouse();
+				property.getPropertyOwner().increaseMoney(property.getRentWithHouse());
 				return;
 			}
 			
 			if(property.getHotel() > 0) {
 				money -= property.getRentWithHotel();
+				property.getPropertyOwner().increaseMoney(property.getRentWithHotel());
 				return;
 			}
 			money -= property.getRent();
+			property.getPropertyOwner().increaseMoney(property.getRent());
 		}
 	}
 	

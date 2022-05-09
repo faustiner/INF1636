@@ -33,7 +33,7 @@ public class PlayerTest {
 	@Test
 	public void playerBuyPropertyTest() {
 		Player player = new Player("Raphael", "Vermelho");
-		Property property = new Property("Leblon", 2000, 500, 600, 700);
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
 		player.buyProperty(property);
 		assertEquals(player.checkHasProperty(property), true);
 	}
@@ -41,7 +41,7 @@ public class PlayerTest {
 	@Test
 	public void playerBuyPropertyMoneyTest() {
 		Player player = new Player("Raphael", "Vermelho");
-		Property property = new Property("Leblon", 2000, 500, 600, 700);
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
 		player.buyProperty(property);
 		assertEquals(player.getMoney(), 2000);
 	}
@@ -50,7 +50,7 @@ public class PlayerTest {
 	public void playerPayRentTest() {
 		Player player = new Player("Raphael", "Vermelho");
 		Player player2 = new Player("Vitor", "Azul");
-		Property property = new Property("Leblon", 2000, 500, 600, 700);
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
 		property.setPropertyOwner(player2);
 		player.payRent(property);
 		assertEquals(player.getMoney(), 3500);
@@ -60,7 +60,7 @@ public class PlayerTest {
 	public void playerPayRentWithHouseTest() {
 		Player player = new Player("Raphael", "Vermelho");
 		Player player2 = new Player("Vitor", "Azul");
-		Property property = new Property("Leblon", 2000, 500, 600, 700);
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
 		property.setPropertyOwner(player2);
 		property.setHouse(2);
 		player.payRent(property);
@@ -71,10 +71,42 @@ public class PlayerTest {
 	public void playerPayRentWithHotelTest() {
 		Player player = new Player("Raphael", "Vermelho");
 		Player player2 = new Player("Vitor", "Azul");
-		Property property = new Property("Leblon", 2000, 500, 600, 700);
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
 		property.setPropertyOwner(player2);
 		property.setHotel(2);
 		player.payRent(property);
 		assertEquals(player.getMoney(), 2600);
+	}
+	
+	@Test
+	public void playerReceiveRentTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Player player2 = new Player("Vitor", "Azul");
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
+		property.setPropertyOwner(player2);
+		player.payRent(property);
+		assertEquals(player2.getMoney(), 4500);
+	}
+	
+	@Test
+	public void playerReceiveRentWithHouseTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Player player2 = new Player("Vitor", "Azul");
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
+		property.setPropertyOwner(player2);
+		property.setHouse(2);
+		player.payRent(property);
+		assertEquals(player2.getMoney(), 5200);
+	}
+	
+	@Test
+	public void playerReceiveRentWithHotelTest() {
+		Player player = new Player("Raphael", "Vermelho");
+		Player player2 = new Player("Vitor", "Azul");
+		Property property = new Property("Leblon", 2000, 500, 600, 700, 300, 400);
+		property.setPropertyOwner(player2);
+		property.setHotel(2);
+		player.payRent(property);
+		assertEquals(player2.getMoney(), 5400);
 	}
 }

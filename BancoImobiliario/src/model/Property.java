@@ -8,15 +8,19 @@ public class Property {
 	private int rent;
 	private int rentWithHouse;
 	private int rentWithHotel;
+	private int housePrice;
+	private int hotelPrice;
 	private int houses;
 	private int hotels;
 	
-	public Property(String name, int price, int rent, int rentWithHouse, int rentWithHotel) {
+	public Property(String name, int price, int rent, int rentWithHouse, int rentWithHotel, int housePrice, int hotelPrice) {
 		this.name = name;
 		this.price = price;
 		this.rent = rent;
 		this.rentWithHouse = rentWithHouse;
 		this.rentWithHotel = rentWithHotel;
+		this.housePrice = housePrice;
+		this.hotelPrice = hotelPrice;
 		this.houses = 0;
 		this.hotels = 0;
 	}
@@ -76,12 +80,14 @@ public class Property {
 	public void buildHouse(Player player) {
 		if(getPropertyOwner() == player) {
 			houses++;
+			player.decreaseMoney(housePrice);
 		}
 	}
 	
 	public void buildHotel(Player player) {
 		if(getPropertyOwner() == player && houses >= 1) {
 			hotels++;
+			player.decreaseMoney(hotelPrice);
 		}
 	}
 }
