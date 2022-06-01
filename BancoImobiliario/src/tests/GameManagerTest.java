@@ -1,11 +1,7 @@
 package tests;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
 import model.GameManager;
-import model.Player;
 import org.junit.Test;
 
 public class GameManagerTest {
