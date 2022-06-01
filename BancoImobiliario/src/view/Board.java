@@ -1,8 +1,6 @@
 package view;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.geom.*;
 import javax.swing.*;
 import java.io.*;
 import javax.imageio.*;
@@ -13,7 +11,7 @@ public class Board extends JPanel {
 
     public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		int num;
+		
 		Graphics2D g2d = (Graphics2D) g;
 		try {
 			board = ImageIO.read(new File("src/view/images/tabuleiro.png"));
