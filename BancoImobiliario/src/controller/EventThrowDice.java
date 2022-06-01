@@ -1,18 +1,23 @@
 package controller;
 
 import java.awt.event.*;
+
+import model.GameManager;
 import view.Frame;
 
 public class EventThrowDice implements  ActionListener {
 
-	Frame f;
+	Frame frame;
+    GameManager gameManager;
 
-	public EventThrowDice(Frame f) {
-		this.f = f;
+	public EventThrowDice(Frame f, GameManager gm) {
+		this.frame = f;
+        this.gameManager = gm;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		
-		f.repaint();
+
+		gameManager.throwDices();
+		frame.repaint();
 	}
 }

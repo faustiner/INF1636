@@ -1,10 +1,13 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameManager {
 
     private ArrayList<Player> players = new ArrayList<>();
+    private int dices[] = new int[2];
+    private Random random = new Random();
 
     public GameManager(int quantity) {
 
@@ -32,6 +35,9 @@ public class GameManager {
             addNewPlayer(players , new Player("Roberto", "amarelo"));
             addNewPlayer(players , new Player("Augusto", "verde"));
         }
+
+        dices[0] = 1;
+        dices[1] = 1;
     }
 
     private void addNewPlayer(ArrayList<Player> playersList, Player newPlayer) {
@@ -46,4 +52,13 @@ public class GameManager {
         return this.players.size();
     }
 
+    public int[] getDices() {
+        return this.dices;
+    }
+
+    public int[] throwDices(){
+        dices[0] = random.nextInt(6) + 1;
+        dices[1] = random.nextInt(6) + 1;
+        return dices;
+    }
 }

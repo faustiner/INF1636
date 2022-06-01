@@ -2,6 +2,7 @@ package view;
 
 import java.awt.*;
 import javax.swing.*;
+import model.GameManager;
 import java.io.*;
 import javax.imageio.*;
 
@@ -9,11 +10,16 @@ public class Board extends JPanel {
 
     Image board;
     Dices dice = new Dices();
+    GameManager gameManager;
+
+    public Board(GameManager gm) {
+        this.gameManager = gm;
+    }
 
     public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
-        int num;
+
+        int diceIndex;
 
 		Graphics2D g2d = (Graphics2D) g;
 		try {
@@ -26,7 +32,9 @@ public class Board extends JPanel {
         g2d.drawImage(board ,0 ,0 , null);
 
     
-		g2d.drawImage(dice.Dice(0), 850, 400, null);
-		g2d.drawImage(dice.Dice(1), 960, 400, null);
+        diceIndex = gameManager.getDices()[0] - 1;
+		g2d.drawImage(dice.Dice(diceIndex), 850, 400, null);
+        diceIndex = gameManager.getDices()[1] - 1;
+		g2d.drawImage(dice.Dice(diceIndex), 960, 400, null);
     }
 }

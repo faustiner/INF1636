@@ -14,7 +14,7 @@ public class Frame extends JFrame {
 	public Frame(GameManager gameManager) {
 		JButton dices = new JButton("Jogar Dados");
 		dices.setBounds(850, 540, 200, 50);
-        dices.addActionListener(new EventThrowDice(this));
+        dices.addActionListener(new EventThrowDice(this, gameManager));
 		add(dices);
 		
 		JMenuBar mb = new JMenuBar();
@@ -33,7 +33,7 @@ public class Frame extends JFrame {
 		int y = sa/2 - HEIGHT / 2;
 		
 		/*Painel do jogo*/
-		board = new Board();
+		board = new Board(gameManager);
 		getContentPane().add(board);
 		setBounds(x, y, WIDTH , HEIGHT);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
