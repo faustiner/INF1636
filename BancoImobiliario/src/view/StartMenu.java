@@ -7,17 +7,22 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controller.EventStartMenu;
+
 public class StartMenu extends JFrame{
-	public final int WIDTH=800;
-	public final int HEIGHT=400;
+	public final int WIDTH = 1200;
+	public final int HEIGHT = 700;
 	JPanel p;
 	
 	public StartMenu() {
-		JButton carregar = new JButton("Carregar partida");
-		carregar.setBounds(300, 300, 200, 50);
-		add(carregar);
-		StartPanel inicial = new StartPanel();
-		getContentPane().add(inicial);
+		JButton loadButton = new JButton("Carregar partida");
+		loadButton.setBounds(500, 300, 200, 50);
+		add(loadButton);
+
+		StartPanel start = new StartPanel();
+		start.addMouseListener(new EventStartMenu(this));
+		getContentPane().add(start);
+
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		Dimension screenSize=tk.getScreenSize();
 		int sl = screenSize.width;

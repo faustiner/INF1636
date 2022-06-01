@@ -1,5 +1,27 @@
 package view;
 
-public class Board {
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.geom.*;
+import javax.swing.*;
+import java.io.*;
+import javax.imageio.*;
 
+public class Board extends JPanel {
+
+    Image board;
+
+    public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		int num;
+		Graphics2D g2d = (Graphics2D) g;
+		try {
+			board = ImageIO.read(new File("src/view/images/tabuleiro.png"));
+		  } catch (IOException e) {
+			System.out.println(e.getMessage());
+			System.exit(1);
+		} 
+
+        g2d.drawImage(board ,0 ,0 , null);
+    }
 }
