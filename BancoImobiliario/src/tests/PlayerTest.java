@@ -3,7 +3,6 @@ package tests;
 import static org.junit.Assert.*;
 import model.Player;
 import model.Property;
-
 import org.junit.Test;
 
 public class PlayerTest {

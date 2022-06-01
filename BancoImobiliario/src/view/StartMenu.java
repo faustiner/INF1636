@@ -16,7 +16,7 @@ public class StartMenu extends JFrame{
 	
 	public StartMenu() {
 		JButton loadButton = new JButton("Carregar partida");
-		loadButton.setBounds(500, 300, 200, 50);
+		loadButton.setBounds(500, 360, 200, 50);
 		add(loadButton);
 
 		StartPanel start = new StartPanel();

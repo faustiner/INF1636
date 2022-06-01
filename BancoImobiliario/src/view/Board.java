@@ -8,10 +8,13 @@ import javax.imageio.*;
 public class Board extends JPanel {
 
     Image board;
+    Dices dice = new Dices();
 
     public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
+        int num;
+
 		Graphics2D g2d = (Graphics2D) g;
 		try {
 			board = ImageIO.read(new File("src/view/images/tabuleiro.png"));
@@ -21,5 +24,9 @@ public class Board extends JPanel {
 		} 
 
         g2d.drawImage(board ,0 ,0 , null);
+
+    
+		g2d.drawImage(dice.Dice(0), 850, 400, null);
+		g2d.drawImage(dice.Dice(1), 960, 400, null);
     }
 }

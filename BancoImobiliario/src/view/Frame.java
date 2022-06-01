@@ -2,7 +2,8 @@ package view;
 
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
+import controller.EventThrowDice;
+import model.GameManager;
 
 
 public class Frame extends JFrame {
@@ -10,9 +11,10 @@ public class Frame extends JFrame {
 	public final int HEIGHT = 700;
 	JPanel board;
 
-	public Frame() {
+	public Frame(GameManager gameManager) {
 		JButton dices = new JButton("Jogar Dados");
-		dices.setBounds(850,340,200,50);
+		dices.setBounds(850, 540, 200, 50);
+        dices.addActionListener(new EventThrowDice(this));
 		add(dices);
 		
 		JMenuBar mb = new JMenuBar();
