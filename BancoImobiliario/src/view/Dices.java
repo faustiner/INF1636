@@ -23,7 +23,6 @@ public class Dices {
 			System.exit(1);
 		}
 		
-	
 	}
 	public Image Dice(int value) {
 		return dices[value];

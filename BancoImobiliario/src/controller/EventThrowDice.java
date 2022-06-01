@@ -1,8 +1,6 @@
 package controller;
 
 import java.awt.event.*;
-import javax.swing.*;
-import view.Dices;
 import view.Frame;
 
 public class EventThrowDice implements  ActionListener {
