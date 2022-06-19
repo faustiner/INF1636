@@ -36,5 +36,13 @@ public class Board extends JPanel {
 		g2d.drawImage(dice.Dice(diceIndex), 850, 400, null);
         diceIndex = gameManager.getDices()[1] - 1;
 		g2d.drawImage(dice.Dice(diceIndex), 960, 400, null);
+
+        g2d.drawRect(850, 60, 200, 50);
+		g2d.setPaint(Color.BLACK);
+		g2d.drawString("Jogador da vez: ", 860, 90);
+
+        g2d.drawRect(950, 60, 200, 50);
+		g2d.setPaint(Color.BLACK);
+		g2d.drawString("Dinheiro: ", 960, 90);
     }
 }
